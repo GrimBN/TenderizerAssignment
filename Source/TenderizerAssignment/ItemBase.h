@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "ItemBase.generated.h"
 
+UENUM(BlueprintType)
+enum ItemType { Weapon, KeyItem};
+
 UCLASS()
 class TENDERIZERASSIGNMENT_API AItemBase : public AActor
 {
@@ -26,8 +29,13 @@ public:
 	UFUNCTION()
 	virtual void PickedUp();
 
+	int GetMaxStacks();
+
 protected:
 	UPROPERTY(EditAnywhere)
 	int maxStacks;
+
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<ItemType> itemType;
 
 };

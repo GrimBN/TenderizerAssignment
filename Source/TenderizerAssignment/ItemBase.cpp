@@ -1,4 +1,3 @@
-#include "ItemBase.h"
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
@@ -28,5 +27,10 @@ void AItemBase::Tick(float DeltaTime)
 
 void AItemBase::PickedUp()
 {
+}
+
+int AItemBase::GetMaxStacks()
+{
+	return maxStacks;
 }
 

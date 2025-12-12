@@ -9,9 +9,18 @@
 
 struct InventorySlot
 {
-	AItemBase item;
+	AItemBase* item = nullptr;
 	int count;
 	int maxStackCount;
+
+	FString ToString()
+	{
+		if (item != nullptr)
+		{
+			return item->GetName();
+		}
+		return "Slot is Empty";
+	}
 };
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -32,10 +41,16 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION()
-	void AddItem(AActor* item);
+	bool TryAddItem(AItemBase* item);
+
+	bool TryInsertIntoFirstFreeSlot(AItemBase*& item);
 
 	UFUNCTION()
-	void DropItem(AActor* item);
+	void DropItem(int slotIndex);
+
+	int CheckIfItemExists(AItemBase* item);
+
+	int FindFirstEmptySlot();
 
 	
 
@@ -44,7 +59,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	int maxSlots;
 
-	InventorySlot* items;
+	TArray<InventorySlot> items;
 
 
 
