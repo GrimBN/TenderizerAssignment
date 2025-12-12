@@ -4,8 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "ItemBase.h"
 #include "InventoryComponent.generated.h"
 
+struct InventorySlot
+{
+	AItemBase item;
+	int count;
+	int maxStackCount;
+};
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TENDERIZERASSIGNMENT_API UInventoryComponent : public UActorComponent
@@ -23,6 +30,23 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION()
+	void AddItem(AActor* item);
+
+	UFUNCTION()
+	void DropItem(AActor* item);
+
+	
+
+private:
+
+	UPROPERTY(EditAnywhere)
+	int maxSlots;
+
+	InventorySlot* items;
+
+
 
 		
 };

@@ -19,6 +19,7 @@ void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	items = new InventorySlot[maxSlots];
 	// ...
 	
 }
@@ -30,5 +31,13 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+}
+
+void UInventoryComponent::AddItem(AActor* item)
+{
+}
+
+void UInventoryComponent::DropItem(AActor* item)
+{
 }
 
