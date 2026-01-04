@@ -8,7 +8,7 @@ public class TenderizerAssignmentTarget : TargetRules
 	public TenderizerAssignmentTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V6;
+		DefaultBuildSettings = BuildSettingsVersion.Latest;
 
 		ExtraModuleNames.AddRange( new string[] { "TenderizerAssignment" } );
 	}

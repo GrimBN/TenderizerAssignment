@@ -9,7 +9,7 @@
 UENUM(BlueprintType)
 enum ItemType { Weapon, KeyItem};
 
-UCLASS()
+UCLASS(BlueprintType)
 class TENDERIZERASSIGNMENT_API AItemBase : public AActor
 {
 	GENERATED_BODY()

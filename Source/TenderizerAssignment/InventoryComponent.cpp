@@ -28,6 +28,7 @@ void UInventoryComponent::BeginPlay()
 	}
 	// ...
 	
+
 }
 
 
@@ -60,8 +61,7 @@ bool UInventoryComponent::TryAddItem(AItemBase* item)
 		return TryInsertIntoFirstFreeSlot(item);	
 	}
 
-	return false;
-	
+
 }
 
 bool UInventoryComponent::TryInsertIntoFirstFreeSlot(AItemBase*& item)
